@@ -1,0 +1,133 @@
+body {
+    width: 99%;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    overflow: hidden;
+}
+
+/*body.resume {
+    background-image: url(face-front.svg);
+    background-repeat: no-repeat;
+    background-size: 37%;
+    background-position-x: 115%;
+    background-position-y: 20%
+}
+
+body.bio {
+    background-image: url(face-side.svg);
+    background-repeat: no-repeat;
+    background-size: 37%;
+    background-position-x: 115%;
+    background-position-y: 20%
+}*/
+
+.name-title {
+    text-align: center;
+    margin-top: 6%;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    font-size: 75pt;
+    display: inline-block;
+    color: black;
+}
+
+.surname {
+    color: #FFCF01;
+}
+
+.navbar {
+    text-align: center;
+    margin-top: 5%;
+}
+
+a {
+    text-decoration: none;
+    padding: 7px;
+}
+
+a:link {
+    color: black;
+}
+
+a:visited {
+    color: black;
+}
+
+.navbar > a {
+    margin-left: 30px;
+    margin-right: 30px;
+    text-transform: uppercase;
+    font-size: 20pt;
+}
+
+a.active {
+    color: #FFCF01;
+}
+
+a:hover {
+    background:#FFCF01;
+    color: white;
+}
+
+/*.face-side {
+    height: 80%;
+    position: absolute;
+    top: 10%;
+    left: 25%;
+    z-index: -1;
+    opacity: 0.7;
+}
+
+.face-front {
+    height: 80%;
+    position: absolute;
+    top: 10%;
+    right: 25%;
+    z-index: -1;
+    opacity: 0.7;
+}*/
+
+.face-side {
+    height: 120%;
+    position: absolute;
+    top: 23%;
+    left: -9%;
+    z-index: -1;
+    opacity: 0.7;
+    transform: scaleX(-1);
+}
+
+.face-front {
+    height: 120%;
+    position: absolute;
+    top: -40%;
+    right: -2%;
+    z-index: -1;
+    opacity: 0.7;
+}
+
+.resume > .face-front {
+    height: 120%;
+    left: -10%;
+    top: -15%;
+}
+
+.bio > .face-side {
+    transform: scaleX(1);
+    height: 120%;
+    left: 70%;
+    top: -10%;
+}
+
+p {
+    font-size: 1.3rem;
+    width: 30%;
+    padding-left: 15%;
+    padding-right: 15%;
+    text-align: center;
+    margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+}
