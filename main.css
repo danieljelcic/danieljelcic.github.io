@@ -4,7 +4,7 @@ body {
     overflow-x: hidden;
 }
 
-body.index {
+body.index, body.code-req {
     overflow: hidden;
 }
 
@@ -180,4 +180,52 @@ h5 {
 
 footer {
     height: 100px;
+}
+
+#req-title {
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+#req-title > h1 {
+    font-size: 50px;
+}
+
+#code-req-block {
+    width: 30%;
+    margin: 0 auto;
+}
+
+#code-req-form > input[type="text"] {
+    width: 100%;
+    font-size: 2em;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid rgb(56, 56, 56);
+    padding: 10px;
+}
+
+#code-req-form > input[type="text"]:focus {
+    background-color: rgb(245, 236, 195);
+}
+
+#submit-button {
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    color: black;
+    padding: 20px;
+    margin-top: 20px;
+    float: right;
+    background-color: #FFCF01;
+    border: none;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#code-req-form > p {
+    font-size: 1em;
+}
+
+.input-label {
+    color: #808080;
 }
