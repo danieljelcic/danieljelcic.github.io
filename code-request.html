@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Request Code Access - Daniel Jelčić</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script>
+        function sendRequest() {
+            var email = document.getElementsByName("email")[0].value;
+            var company = document.getElementsByName("company")[0].value;
+            if (!(validateEmail(email)) || (company == "")) {
+                return false;
+            }
+
+            var request = new XMLHttpRequest();
+            request.open("POST", "https://agile-lowlands-44914.herokuapp.com/code-request", true);
+            
+            request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            
+            // processing of the response
+            request.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {
+                    document.getElementById("code-req-form").style.display = "none";
+                    document.getElementById("confirmation").innerHTML = "Thank you for your submission, I will get back to you shortly!"
+                } else if (this.readyState === 4 && this.status != 200) {
+                    document.getElementById("code-req-form").style.display = "none";
+                    document.getElementById("confirmation").innerHTML = "Something went wrong. <a href=\"https://danieljelcic.github.io/code-request.html\">Try again?</a>"                        
+                }
+            }
+            request.send("email=" + email + "&company=" + company);
+        }
+    </script>
+</head>
+<body class="code-req">
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="bio.html">About me</a>
+        <a href="resume.html">Resume</a>
+    </div>
+    <div class="name-title" id="req-title">
+        <h1>Daniel</h1>
+        <h1 class="surname">Jelčić</h1>
+    </div>
+    <img src="face-side.svg" class="face-side">
+    <img src="face-front.svg" class="face-front">
+    <div id="code-req-block">
+        <p id="confirmation">Please submit your contact info below and you will be added to my private GitHub repository as soon as possible (use an e-mail address associated with a GitHub account).</p><br>
+        <div id="code-req-form">
+            <p class="input-label" id="email-label">E-mail address</p>
+            <input name="email" type="text">
+            <p class="input-label" id="company-label">Company / Organization</p>
+            <input name="company" type="text">
+            <button id="submit-button" onclick="sendRequest()">REQUEST CODE</button>
+        </div>
+    </div>
+    <script>
+        function validateEmail(email) {
+            return (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email));
+        }
+        document.getElementsByName("email")[0].addEventListener('blur', function(event) {
+            if (validateEmail(this.value)) {
+                document.getElementById("email-label").innerHTML = "E-mail address".fontcolor("#808080");
+            } else {
+                document.getElementById("email-label").innerHTML = "Please enter valid e-mail address".fontcolor("red");
+            }
+        });
+
+        
+        document.getElementsByName("company")[0].addEventListener('blur', function(event) {
+            if (this.value != "") {
+                document.getElementById("company-label").innerHTML = "Company / Organization".fontcolor("#808080");
+            } else {
+                document.getElementById("company-label").innerHTML = "Please enter a company or organization".fontcolor("red");
+            }
+        });
+    </script>
+</body>
+</html>
